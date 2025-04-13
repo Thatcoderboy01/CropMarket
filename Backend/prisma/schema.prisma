@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String  @id @default(uuid()) 
+  fullname  String
+  email     String  @unique
+  password  String
+  role      Role    @default(FARMER)
+  isBlocked Boolean @default(false)  
+  createdAt DateTime @default(now())
+
+  // Relations
+  Farmer   Farmer?
+  Retailer Retailer?
+}
+
+model Farmer {
+  userId    String @id @unique
+  address   String
+  latitude  Float
+  longitude Float
+
+  // Relations
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)  
+  crops Crop[]
+}
+
+model Retailer {
+  userId String @id @unique
+  companyName String
+  location String
+
+  // Relations
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)  
+  requests Request[]
+}
+
+model Crop {
+  id       String @id @default(uuid())
+  farmerId String
+  name     String
+  price    Float
+  quantity Int
+
+  // Relations
+  farmer Farmer @relation(fields: [farmerId], references: [userId], onDelete: Cascade)  
+  requests Request[]
+}
+
+model Request {
+  id         String @id @default(uuid())
+  retailerId String
+  cropId     String
+  priceOffered Float
+  status      RequestStatus @default(PENDING)
+
+  // Relations
+  retailer Retailer @relation(fields: [retailerId], references: [userId], onDelete: Cascade)  
+  crop     Crop @relation(fields: [cropId], references: [id], onDelete: Cascade)  
+}
+
+model Setting {
+  id    String @id @default(uuid())
+  key   String @unique
+  value String
+}
+
+enum Role {
+  FARMER
+  RETAILER
+  ADMIN
+  BLOCKED  // ✅ Ensure BLOCKED is present
+}
+
+enum RequestStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+}
