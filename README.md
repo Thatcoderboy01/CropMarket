@@ -49,13 +49,14 @@
 
 ![9](https://github.com/user-attachments/assets/e82e086b-f689-4b9e-9b17-f1c0e6a87ebe)
 
-10. **Add Crop Form**
-     A simple form to add a new crop to the CropMarket.
+
+10. **Farmer Dashboard (Crop Management and View)**
+    Farmers can add or manage their own crops.
 
 ![10](https://github.com/user-attachments/assets/900082b0-db50-4ccc-9202-d08c8aa8ca4f)
 
-11. **Farmer Dashboard (Crop Management and View)**
-    Farmers can add or manage their own crops.
+11. **Add Crop Form**
+     A simple form to add a new crop to the CropMarket.
 
 ![11](https://github.com/user-attachments/assets/e6de2828-7f23-421e-959e-2aff16c7a38d)
 
