@@ -107,7 +107,7 @@
 ┣ 📂utils                # Utility functions (e.g., simplifyText.js)  
 ┣ 📂uploads              # (Optional) For file uploads (not used in-memory setup)  
 ┣ 📂models               # (Optional) Prisma models or schema definitions  
-┣ 📜server.js            # Main Express server setup  
+┣ 📜App.js            # Main Express server setup  
 ```
 
 #### 🖥️ Frontend
