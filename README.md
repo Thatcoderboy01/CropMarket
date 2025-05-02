@@ -4,58 +4,58 @@
 
   ### 🧪 Usage Flow (with screenshots)
   
-1. **Login Page**
+1. **Home Page**
    Users can log in based on role.
    
 ![1](https://github.com/user-attachments/assets/08a3fcdb-b841-42d2-8f4c-6ae9b36b2d96)
 
-2. **Dashboard After Login**
+2. **Market Prices Analysis**
    Based on the user role, the dashboard adapts.
    
 ![2](https://github.com/user-attachments/assets/86a37642-3674-4ed8-a278-1100de247fdc)
 
-3. **Crop Listings (Buyer View)**
+3. **About section**
    Buyers can browse available crops with details.
    
 ![3](https://github.com/user-attachments/assets/a95fa323-cbb3-403d-9ea8-bd626db5b83b)
 
-4. **Crop Management (Seller View)**
+4. **How It Works**
    Sellers can add or manage their own crops.
 
 ![4](https://github.com/user-attachments/assets/4b455532-f8fd-4454-a027-1f16b9c1c87c)
 
-5. **Add Crop Form**
+5. **Why Choose CropMarket**
    A simple form to add a new crop to the marketplace.
 
 ![5](https://github.com/user-attachments/assets/a77ac8ff-abe0-457b-bdbe-d6e4708d65ac)
 
-6. **Purchase Confirmation**
-   Buyers can confirm their crop purchases.
+6. **Login Page**
+   Users can log in based on role.
 
 ![6](https://github.com/user-attachments/assets/79907a57-fdd2-4a0d-b577-1c7b276bf178)
 
-7. **Admin Panel - User Management**
-   Admins can see and manage all users.
+7. **User Registration**
+   New users can register with appropriate roles.
 
 ![7](https://github.com/user-attachments/assets/bf30c530-5fdc-40a4-aef6-a192d6e55cee)
 
-8. **Admin Panel - Crop Overview**
-   Admin overview of all crops listed.
+8. **Admin Panel - User Management**
+   Admins can see and manage all users.
 
 ![8](https://github.com/user-attachments/assets/4172ad34-f0b5-4f1f-af5e-8d9584c86777)
 
-9. **User Registration**
+9. **Retailers dashboard**
    New users can register with appropriate roles.
 
 ![9](https://github.com/user-attachments/assets/e82e086b-f689-4b9e-9b17-f1c0e6a87ebe)
 
-10. **Seller Crop History**
-    View previous listings and updates.
+10. **Add Crop Form**
+     A simple form to add a new crop to the CropMarket.
 
 ![10](https://github.com/user-attachments/assets/900082b0-db50-4ccc-9202-d08c8aa8ca4f)
 
-11. **Error or Notification Handling**
-    Clear feedback on actions and errors.
+11. **Farmer Dashboard (Crop Management and View)**
+    Farmers can add or manage their own crops.
 
 ![11](https://github.com/user-attachments/assets/e6de2828-7f23-421e-959e-2aff16c7a38d)
 
@@ -66,6 +66,7 @@
 * Crop listing with image, price, and quantity
 * Purchase workflow for Retailers
 * Admin panel to manage users and crops
+* Real-time chat famers and reatiler each other.
 * Real-time feedback with clean UI
 
 ---
@@ -73,7 +74,7 @@
 ### 🛠 Tech Stack
 
 * **Frontend:** React.js
-* **Backend:** Node.js, Express.js
+* **Backend:** Node.js, Express.js, socket.io
 * **Database:** MySQL with Prisma ORM
 * **Authentication:** JWT-based login with RBAC
 
