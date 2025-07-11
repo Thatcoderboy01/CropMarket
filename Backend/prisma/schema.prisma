@@ -3,80 +3,82 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id        String  @id @default(uuid()) 
-  fullname  String
-  email     String  @unique
-  password  String
-  role      Role    @default(FARMER)
-  isBlocked Boolean @default(false)  
-  createdAt DateTime @default(now())
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  fullname   String
+  email      String    @unique
+  password   String
+  role       Role      @default(FARMER)
+  isBlocked  Boolean   @default(false)
+  createdAt  DateTime  @default(now())
 
   // Relations
-  Farmer   Farmer?
-  Retailer Retailer?
+  farmer     Farmer?
+  retailer   Retailer?
 }
 
 model Farmer {
-  userId    String @id @unique
-  address   String
-  latitude  Float
-  longitude Float
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String    @unique              // ✅ Required for 1:1 relation
+  address    String
+  latitude   Float
+  longitude  Float
 
   // Relations
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)  
-  crops Crop[]
+  user       User?     @relation(fields: [userId], references: [id])
+  crops      Crop[]
 }
 
 model Retailer {
-  userId String @id @unique
-  companyName String
-  location String
+  id           String    @id @default(auto()) @map("_id") @db.ObjectId
+  userId       String    @unique              // ✅ Required for 1:1 relation
+  companyName  String
+  location     String
 
   // Relations
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)  
-  requests Request[]
+  user         User?     @relation(fields: [userId], references: [id])
+  requests     Request[]
 }
 
 model Crop {
-  id       String @id @default(uuid())
-  farmerId String
-  name     String
-  price    Float
-  quantity Int
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  farmerId  String
+  name      String
+  price     Float
+  quantity  Int
 
   // Relations
-  farmer Farmer @relation(fields: [farmerId], references: [userId], onDelete: Cascade)  
-  requests Request[]
+  farmer    Farmer?    @relation(fields: [farmerId], references: [id])
+  requests  Request[]
 }
 
 model Request {
-  id         String @id @default(uuid())
-  retailerId String
-  cropId     String
+  id           String         @id @default(auto()) @map("_id") @db.ObjectId
+  retailerId   String
+  cropId       String
   priceOffered Float
-  status      RequestStatus @default(PENDING)
+  status       RequestStatus  @default(PENDING)
 
   // Relations
-  retailer Retailer @relation(fields: [retailerId], references: [userId], onDelete: Cascade)  
-  crop     Crop @relation(fields: [cropId], references: [id], onDelete: Cascade)  
+  retailer     Retailer?      @relation(fields: [retailerId], references: [id])
+  crop         Crop?          @relation(fields: [cropId], references: [id])
 }
 
 model Setting {
-  id    String @id @default(uuid())
-  key   String @unique
-  value String
+  id     String   @id @default(auto()) @map("_id") @db.ObjectId
+  key    String   @unique
+  value  String
 }
 
 enum Role {
   FARMER
   RETAILER
   ADMIN
-  BLOCKED  // ✅ Ensure BLOCKED is present
+  BLOCKED
 }
 
 enum RequestStatus {
