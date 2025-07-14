@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5000/api/auth";  // Backend API ka base URL
+const BASE_URL = "https://cropmarket-hfds.onrender.com/api/auth";  // Backend API ka base URL
 
 export const registerUser = async (userData) => {
   const response = await fetch(`${BASE_URL}/register`, {

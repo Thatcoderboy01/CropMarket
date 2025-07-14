@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { SendHorizonal } from 'lucide-react';
 import { io } from 'socket.io-client';
 
-const socket = io('http://localhost:5000'); // ✅ Backend URL
+const socket = io('https://cropmarket-hfds.onrender.com/'); // ✅ Backend URL
 
 const ChatBox = () => {
   const [messages, setMessages] = useState([]);

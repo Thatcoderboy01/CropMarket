@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
 
-const socket = io("http://localhost:5000"); // Update with your backend URL if needed
+const socket = io("https://cropmarket-hfds.onrender.com/"); // Update with your backend URL if needed
 
 const ChatRoom = () => {
   const [messages, setMessages] = useState([]);

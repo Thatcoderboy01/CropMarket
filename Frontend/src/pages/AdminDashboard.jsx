@@ -25,7 +25,7 @@ const AdminDashboard = () => {
 const fetchAllUsers = async () => {
   try {
     const token = localStorage.getItem("token");
-    const res = await axios.get("http://localhost:5000/api/admin/users", {
+    const res = await axios.get("https://cropmarket-hfds.onrender.com/api/admin/users", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -51,7 +51,7 @@ const fetchAllUsers = async () => {
   const handleGetPolicy = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/admin/get-policies", {
+      const res = await axios.get("https://cropmarket-hfds.onrender.com/api/admin/get-policies", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -67,7 +67,7 @@ const fetchAllUsers = async () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:5000/api/admin/set-policy",
+        "https://cropmarket-hfds.onrender.com/api/admin/set-policy",
         policy,
         {
           headers: {
@@ -93,7 +93,7 @@ const fetchAllUsers = async () => {
   const fetchDashboardStats = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/admin/dashboard", {
+      const res = await axios.get("https://cropmarket-hfds.onrender.com/api/admin/dashboard", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -115,7 +115,7 @@ const handleUnblockUser = async (userId) => {
   try {
     const token = localStorage.getItem("token");
     await axios.patch(
-      `http://localhost:5000/api/admin/user/${userId}/unblock`,
+      `https://cropmarket-hfds.onrender.com/api/admin/user/${userId}/unblock`,
       {},
       {
         headers: {
@@ -137,7 +137,7 @@ const handleUnblockUser = async (userId) => {
     try {
       const token = localStorage.getItem("token");
       await axios.patch(
-        `http://localhost:5000/api/admin/user/${userId}/block`,
+        `https://cropmarket-hfds.onrender.com/api/admin/user/${userId}/block`,
         {},
         {
           headers: {

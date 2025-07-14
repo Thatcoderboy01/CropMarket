@@ -40,7 +40,7 @@ const UpdateCropModal = ({ isOpen, closeModal, onUpdate, initialData }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/crops/update/${initialData.id}`,
+        `https://cropmarket-hfds.onrender.com/api/crops/update/${initialData.id}`,
         {
           method: "PUT",
           headers: {

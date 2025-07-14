@@ -52,7 +52,7 @@ const FarmerDashboard = () => {
   const fetchCrops = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:5000/api/crops/my-crops", {
+      const response = await fetch("https://cropmarket-hfds.onrender.com/api/crops/my-crops", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await response.json();
@@ -65,7 +65,7 @@ const FarmerDashboard = () => {
   const fetchRequests = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:5000/api/requests/my-requests", {
+      const response = await fetch("https://cropmarket-hfds.onrender.com/api/requests/my-requests", {
         method: "PUT",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -79,7 +79,7 @@ const FarmerDashboard = () => {
   const handleRequest = async (requestId, status) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:5000/api/crops/update-status", {
+      const response = await fetch("https://cropmarket-hfds.onrender.com/api/crops/update-status", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -115,7 +115,7 @@ const FarmerDashboard = () => {
   const deleteCrop = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://localhost:5000/api/crops/delete/${id}`, {
+      const response = await fetch(`https://cropmarket-hfds.onrender.com/api/crops/delete/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });

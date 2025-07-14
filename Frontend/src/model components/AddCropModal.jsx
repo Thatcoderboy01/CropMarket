@@ -30,7 +30,7 @@ const AddCropModal = ({ isOpen, closeModal, addCrop }) => {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/api/crops/add", {
+      const response = await fetch("https://cropmarket-hfds.onrender.com/api/crops/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

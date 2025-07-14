@@ -23,7 +23,7 @@ const RetailerDashboard = () => {
     const fetchCrops = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:5000/api/requests/crops", {
+        const response = await axios.get("https://cropmarket-hfds.onrender.com/api/requests/crops", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -65,7 +65,7 @@ const RetailerDashboard = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/requests/send", {
+      const res = await fetch("https://cropmarket-hfds.onrender.com/api/requests/send", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
