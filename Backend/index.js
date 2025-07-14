@@ -14,10 +14,13 @@ import adminRoutes from "./src/routes/adminRoutes.js";
 const app = express();
 const server = http.createServer(app); // Create HTTP server instance
 
-// 🌐 CORS Setup for frontend
+// 🌐 CORS Setup for both development and production
 app.use(
   cors({
-    origin: "http://localhost:5173", // Frontend origin
+    origin: [
+      "http://localhost:5173",                // Dev frontend
+      "https://crop-market.vercel.app",       // ✅ Your Vercel deployed frontend
+    ],
     credentials: true,
   })
 );
@@ -34,7 +37,10 @@ app.use("/api/admin", adminRoutes);
 // 🔌 Socket.io Setup
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",                // Dev frontend
+      "https://crop-market.vercel.app",       // ✅ Vercel frontend for sockets
+    ],
     methods: ["GET", "POST"],
   },
 });
@@ -52,6 +58,13 @@ io.on("connection", (socket) => {
   });
 });
 
+// 🌐 Default route (optional for testing)
+app.get("/", (req, res) => {
+  res.send("CropMarket Backend is running ✅");
+});
+
 // 🚀 Start server
 const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+server.listen(PORT, () =>
+  console.log(`🚀 Server running on http://localhost:${PORT}`)
+);
