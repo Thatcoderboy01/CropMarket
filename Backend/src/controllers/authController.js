@@ -2,7 +2,8 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import prisma from "../config/prisma.js";
 import dotenv from "dotenv";
-import { Role } from "@prisma/client"; // ✅ Prisma ENUM Import
+import pkg from '@prisma/client';
+const { Role } = pkg;
 
 dotenv.config();
 const JWT_SECRET = process.env.JWT_SECRET || "supersecretkey";

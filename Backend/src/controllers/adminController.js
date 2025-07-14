@@ -1,5 +1,6 @@
 import prisma from "../config/prisma.js";
-import { Role } from "@prisma/client";  // ✅ Import Prisma Enums
+import pkg from '@prisma/client';
+const { Role } = pkg;
 
 // Get All Users (Farmers & Retailers)
 export const getAllUsers = async (req, res) => {

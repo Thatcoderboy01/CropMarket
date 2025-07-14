@@ -4,11 +4,11 @@ import http from "http";
 import { Server } from "socket.io";
 
 // 🔁 Routes import
-import authRoutes from "./routes/authRoutes.js";
-import cropRoutes from "./routes/cropRoutes.js";
-import requestRoutes from "./routes/requestRoutes.js";
-import farmerRoutes from "./routes/farmerRoutes.js";
-import adminRoutes from "./routes/adminRoutes.js";
+import authRoutes from "./src/routes/authRoutes.js";
+import cropRoutes from "./src/routes/cropRoutes.js";
+import requestRoutes from "./src/routes/requestRoutes.js";
+import farmerRoutes from "./src/routes/farmerRoutes.js";
+import adminRoutes from "./src/routes/adminRoutes.js";
 
 // 🔧 App setup
 const app = express();
